@@ -1,0 +1,171 @@
+
+# 06/23/2022
+
+#: import FallOutTransition kivy.uix.screenmanager.FallOutTransition
+
+ScreenManager:
+    
+    id: manager
+    transition: FallOutTransition()
+    
+    LoginScreen:
+    MainScreen:
+    
+<LoginScreen>:
+    
+    id: login_screen
+    name: 'LoginScreen'
+    
+    username: username
+    password: password
+    
+    MDNavigationLayout:
+        
+        ScreenManager:
+            
+            Screen:
+                
+                FloatLayout:
+                    
+                    Image:
+                        source: 'FILE PATH'
+                        allow_stretch: True
+                        keep_ratio: False
+                        size_hint: None, None
+                        size: '350dp', '220dp'
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.77}
+                        
+                    MDLabel:
+                        text: 'Welcome!'
+                        font_size: 50
+                        font_name: 'Inter-Bold'
+                        theme_text_color: 'Custom'
+                        text_color: 1, 1, 1, 1
+                        halign: 'center'
+                        pos_hint: {'center_x': 0.25, 'center_y': 0.6}
+                        
+                    MDLabel:
+                        text: 'Please sign in to continue'
+                        font_size: 25
+                        font_name: 'Inter-Bold'
+                        theme_text_color: 'Custom'
+                        text_color: 70/255, 70/255, 70/255, 1
+                        halign: 'center'
+                        pos_hint: {'center_x': 0.3, 'center_y': 0.57}
+                        
+                    MDTextField:
+                        id: username
+                        hint_text: 'Username'
+                        font_size: 30
+                        mode: 'fill'
+                        fill_color: 0, 0, 0, 0
+                        color_active: 17/255, 246/255, 237/255, 1
+                        icon_right: 'account'
+                        icon_right_color: 200/255, 200/255, 200/255, 1
+                        on_text_validate: root.check_login_data()
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        size_hint_x: None
+                        width: '350dp'
+                        
+                    MDTextField:
+                        id: password
+                        hint_text: 'Password'
+                        font_size: 30
+                        mode: 'fill'
+                        fill_color: 0, 0, 0, 0
+                        color_active: 17/255, 246/255, 237/255, 1
+                        icon_right: 'lock'
+                        icon_right_color: 200/255, 200/255, 200/255, 1
+                        password: True
+                        on_text_validate: root.check_login_data()
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+                        size_hint_x: None
+                        width: '350dp'
+                        
+                    MDFillRoundFlatButton:
+                        text: '             LOGIN             '
+                        font_size: 40
+                        font_name: 'Inter-Bold'
+                        md_bg_color: 17/255, 246/255, 237/255, 1
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.25}
+                        on_release: root.check_login_data()
+                        
+                    MDTextButton:
+                        text: 'Forgot Password?'
+                        font_size: 25
+                        theme_text_color: 'Custom'
+                        text_color: 17/255, 246/255, 237/255, 1
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+                        
+                    MDCard:
+                        pos_hint: {'center_x': 0.42, 'y': 0.001}
+                        md_bg_color: 0, 0, 0, 0
+                        size_hint: None, None
+                        size: '200dp', '30dp'
+                        
+                        MDLabel:
+                            text: 'Don\'t have an account?'
+                            font_size: 25
+                            font_name: 'Inter-ExtraLight'
+                            theme_text_color: 'Custom'
+                            text_color: 1, 1, 1, 1
+                            halign: 'center'
+                            
+                    MDTextButton:
+                        text: 'Sign up'
+                        font_size: 25
+                        font_name: 'Inter-Bold'
+                        theme_text_color: 'Custom'
+                        text_color: 17/255, 246/255, 237/255, 1
+                        pos_hint: {'center_x': 0.68, 'y': 0.01}
+                    
+                    MDIconButton:
+                        icon: 'alert'
+                        theme_text_color: 'Custom'
+                        text_color: 1, 0, 0, 0.3
+                        pos_hint: {'center_x': 0.08, 'y': -0.01}
+                        on_release: root.patch_notes()
+                        
+        MDNavigationDrawer:
+            id: nav_drawer
+            close_on_click: True
+            swipe_edge_width: 500
+            
+            BoxLayout:
+                orientation: 'vertical'
+                padding: '10dp'
+                spacing: '5dp'
+                
+                MDLabel:
+                    text: 'Underworld Logs'
+                    font_style: 'H5'
+                    font_name: 'Inter-Bold'
+                    bold: True
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                
+                OneLineListItem:
+                    text: '07/03/2022 Fully working login screen'
+                    font_name: 'Inter-ExtraLight'
+                    
+                    #Put this if you want to turn the list item
+                    #into label
+                    
+                    #size_hint_y: None
+                    #height: self.texture_size[1]
+                    
+                OneLineListItem:
+                    text: 'Added authentication'
+                    
+                OneLineListItem:
+                    text: 'Bugs fixed'
+                        
+                        
+                ScrollView:
+                    
+<MainScreen>:
+    id: MainScreen
+    name: 'MainScreen'
+    
+    MDLabel:
+        text: 'HELLO WOORRRLDDD!!!!'
